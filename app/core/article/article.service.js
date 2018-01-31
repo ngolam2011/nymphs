@@ -7,7 +7,11 @@ angular.
         var url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
         var api_key = '3b2984fef8a143f0a522a88a34c2dd3e';
 
-        url += '?api-key=' + api_key + '&q=singapore&page=:page';
+        return $resource(url, {
+            'api-key': api_key,
+            q: 'singapore',
+            page: ':page'
+        });
 
-        return $resource(url);
   }]);
+

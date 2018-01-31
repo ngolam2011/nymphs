@@ -21,7 +21,7 @@ describe("Article", function() {
   // Instantiate the service and "train" `$httpBackend` before each test
   beforeEach(inject(function(_$httpBackend_, _Article_) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=3b2984fef8a143f0a522a88a34c2dd3e&q=singapore&page=0').respond(articleData);
+    $httpBackend.expectGET('https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=3b2984fef8a143f0a522a88a34c2dd3e&q=singapore&page=1').respond(articleData);
     Article = _Article_;
   }));
 
@@ -32,7 +32,7 @@ describe("Article", function() {
   });
 
   it('should fetch the data from nyt api', function() {
-    var articles = Article.query({ page:0 });
+    var articles = Article.query({ page:1 });
 
     expect(articles).toEqual([]);
 
